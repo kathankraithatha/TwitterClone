@@ -1,5 +1,6 @@
 package com.example.twitter
 
+import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollState
@@ -41,6 +42,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.currentCompositionLocalContext
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -50,6 +52,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.modifier.modifierLocalConsumer
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.platform.UriHandler
 import androidx.compose.ui.res.painterResource
@@ -65,7 +68,7 @@ fun Twitter_UI() {
         color = Color.Black
     ) {
         Box( modifier = Modifier.fillMaxSize()){
-
+            val context= LocalContext.current
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -80,7 +83,10 @@ fun Twitter_UI() {
                 Tweets("Kotlin is The Real King Of All Languages")
             }
             FloatingActionButton(
-                onClick = {  },
+                onClick = {
+                    val intent=Intent(context,SecondActivity::class.java)
+                    context.startActivity(intent)
+                },
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
                     .padding(bottom = 30.dp, end = 15.dp),

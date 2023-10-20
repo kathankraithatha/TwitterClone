@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TwitterClone"
         tools:targetApi="31">
+        <activity android:name="com.example.twitter.SecondActivity" />
         <activity
             android:name="com.example.twitter.MainActivity"
             android:exported="true"
